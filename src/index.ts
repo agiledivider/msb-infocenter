@@ -5,7 +5,30 @@ const msb_info = await file.json();
 
 const router = new Router();
 
+let msb_state = "closed";
+
 router.add("GET", "/api/spaceapi", (request, params) => {
+    return Response.json(msb_info);
+});
+
+router.add("GET", "/api/msb/state", (request, params) => {
+    return Response.json({ state: msb_info.state?.open ? "open" : "closed" });
+});
+
+router.add("GET", "/api/msb/state/close", (request, params) => {
+    msb_info.state = {
+        open: false,
+        lastchange: Date.now()
+    }
+    return Response.json(msb_info);
+});
+
+router.add("GET", "/api/msb/state/open", (request, params) => {
+    msb_info.state = {
+        open: true,
+        lastchange: Date.now(),
+        message: "nur für Mitglieder"
+    }
     return Response.json(msb_info);
 });
 
