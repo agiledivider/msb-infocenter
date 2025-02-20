@@ -1,0 +1,17 @@
+{
+  "api_compatibility": ["15"],
+  "space": "MakerSpace Bonn e.V.",
+  "logo": "https://www.makerspacebonn.de/images/Makerspace_Logo_v6_mit_T_v5.png",
+  "url": "https://www.makerspacebonn.de",
+  "location": {
+    "address": "MakerSpace Bonn e.V., Kennedyallee 18-20, 53175 Bonn",
+    "lat": 50.6981722,
+    "lon": 7.145127,
+    "timezone": "Europe/Berlin",
+    "country_code": "DE"
+  },
+  "contact": {
+    "phone": "+49 228 81 28 69 80",
+    "email": "office@makerspacebonn.de"
+  }
+}
