@@ -5,8 +5,6 @@ const msb_info = await file.json();
 
 const router = new Router();
 
-let msb_state = "closed";
-
 router.add("GET", "/api/spaceapi", (request, params) => {
     return Response.json(msb_info);
 });
@@ -16,6 +14,9 @@ router.add("GET", "/api/msb/state", (request, params) => {
 });
 
 router.add("GET", "/api/msb/state/close", (request, params) => {
+    const apiKey = request.headers.get('msb-key'); // Schlüssel im Header erwarten
+    if (apiKey !== process.env.API_KEY) { return Response.json({message: "Go away!"}, { status: 401, statusText: "SuperSmashingGreat!" })}
+
     msb_info.state = {
         open: false,
         lastchange: Date.now()
@@ -24,6 +25,9 @@ router.add("GET", "/api/msb/state/close", (request, params) => {
 });
 
 router.add("GET", "/api/msb/state/open", (request, params) => {
+    const apiKey = request.headers.get('msb-key'); // Schlüssel im Header erwarten
+    if (apiKey !== process.env.API_KEY) { return Response.json({message: "Go away!"}, { status: 401, statusText: "SuperSmashingGreat!" }
+
     msb_info.state = {
         open: true,
         lastchange: Date.now(),
