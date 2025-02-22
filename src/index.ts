@@ -6,7 +6,10 @@ const msb_info = await file.json();
 const router = new Router();
 
 router.add("GET", "/api/spaceapi", (request, params) => {
-    return Response.json(msb_info);
+    const r = Response.json(msb_info)
+    r.headers.set('Access-Control-Allow-Origin', '*');
+    r.headers.set('Access-Control-Allow-Methods', 'GET');
+    return r;
 });
 
 router.add("GET", "/api/msb/state", (request, params) => {
@@ -26,7 +29,7 @@ router.add("GET", "/api/msb/state/close", (request, params) => {
 
 router.add("GET", "/api/msb/state/open", (request, params) => {
     const apiKey = request.headers.get('msb-key'); // Schlüssel im Header erwarten
-    if (apiKey !== process.env.API_KEY) { return Response.json({message: "Go away!"}, { status: 401, statusText: "SuperSmashingGreat!" }
+    if (apiKey !== process.env.API_KEY) { return Response.json({message: "Go away!"}, { status: 401, statusText: "SuperSmashingGreat!" })}
 
     msb_info.state = {
         open: true,
