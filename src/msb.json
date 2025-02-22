@@ -1,5 +1,5 @@
 {
-  "api_compatibility": ["15"],
+  "api_compatibility": ["14","15"],
   "space": "MakerSpace Bonn e.V.",
   "logo": "https://www.makerspacebonn.de/images/Makerspace_Logo_v6_mit_T_v5.png",
   "url": "https://www.makerspacebonn.de",
