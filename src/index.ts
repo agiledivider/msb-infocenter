@@ -9,6 +9,7 @@ router.add("GET", "/api/spaceapi", (request, params) => {
     const r = Response.json(msb_info)
     r.headers.set('Access-Control-Allow-Origin', '*');
     r.headers.set('Access-Control-Allow-Methods', 'GET');
+    r.headers.set("Access-Control-Allow-Headers", "Content-Type");
     return r;
 });
 
@@ -22,7 +23,7 @@ router.add("GET", "/api/msb/state/close", (request, params) => {
 
     msb_info.state = {
         open: false,
-        lastchange: Date.now()
+        lastchange: Math.floor(Date.now()/1000)
     }
     return Response.json(msb_info);
 });
