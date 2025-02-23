@@ -33,7 +33,7 @@ router.add("GET", "/api/msb/state/open", (request, params) => {
 
     msb_info.state = {
         open: true,
-        lastchange: Date.now(),
+        lastchange: Math.floor(Date.now()/1000),
         message: "nur für Mitglieder"
     }
     return Response.json(msb_info);
