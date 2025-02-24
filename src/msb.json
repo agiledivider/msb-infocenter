@@ -13,5 +13,8 @@
   "contact": {
     "phone": "+49 228 81 28 69 80",
     "email": "office@makerspacebonn.de"
+  },
+  "state": {
+    "open": false
   }
 }
